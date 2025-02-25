@@ -1,4 +1,4 @@
-# 3D Dynamic Page
+# Custom dynamic Discord invite page
 
 A lightweight 3D interactive webpage built on a random night for a friend, hosting a preview on Vercel. Feel free to suggest improvements!
 
