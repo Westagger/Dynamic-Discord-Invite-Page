@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         discordButton.addEventListener('click', () => {
-            window.open('https://dsc.gg/wuztools', '_blank');
+            window.open('https://discord.gg/invitecode', '_blank');
         });
 
         discordButton.addEventListener('mouseenter', () => {
