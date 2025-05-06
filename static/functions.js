@@ -1,35 +1,35 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const box = document.getElementById('interactive-box');
-    const discordButton = document.getElementById('discord-button');
-    let rotateX = 0,
-        rotateY = 0;
+    const Box = document.getElementById('interactive-box');
+    const DiscordButton = document.getElementById('discord-button');
+    let RotateX = 0,
+        RotateY = 0;
 
-    const hasFinePointer = () => {
+    const HasFinePointer = () => {
         return window.matchMedia("(pointer: fine)").matches;
     };
 
-    if (hasFinePointer()) {
-        const customCursor = document.createElement('div');
-        customCursor.classList.add('custom-cursor');
-        document.body.appendChild(customCursor);
+    if (HasFinePointer()) {
+        const CustomCursor = document.createElement('div');
+        CustomCursor.classList.add('custom-cursor');
+        document.body.appendChild(CustomCursor);
 
         document.addEventListener('mousemove', (e) => {
             const { innerWidth, innerHeight } = window;
             const mouseX = e.clientX;
             const mouseY = e.clientY;
 
-            rotateY = ((mouseX - innerWidth / 2) / innerWidth) * 90; 
-            rotateX = ((innerHeight / 2 - mouseY) / innerHeight) * 90; 
+            RotateY = ((mouseX - innerWidth / 2) / innerWidth) * 90; 
+            RotateX = ((innerHeight / 2 - mouseY) / innerHeight) * 90; 
 
-            box.style.transform = `rotateY(${rotateY}deg) rotateX(${rotateX}deg) translateZ(50px) scale(1.2)`;
-            box.style.boxShadow = `${-rotateY / 2}px ${rotateX / 2}px 100px rgba(0, 255, 133, 0.5)`;
+            Box.style.transform = `rotateY(${RotateY}deg) rotateX(${RotateX}deg) translateZ(50px) scale(1.2)`;
+            Box.style.boxShadow = `${-RotateY / 2}px ${RotateX / 2}px 100px rgba(0, 255, 133, 0.5)`;
 
-            customCursor.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+            CustomCursor.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
         });
 
         document.addEventListener('mouseleave', () => {
-            box.style.transform = `rotateY(0deg) rotateX(0deg) translateZ(0px) scale(1)`;
-            box.style.boxShadow = `0 20px 50px rgba(0, 255, 133, 0.4)`;
+            Box.style.transform = `rotateY(0deg) rotateX(0deg) translateZ(0px) scale(1)`;
+            Box.style.boxShadow = `0 20px 50px rgba(0, 255, 133, 0.4)`;
         });
 
         document.addEventListener('contextmenu', (e) => e.preventDefault());
@@ -49,24 +49,24 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         };
 
-        discordButton.addEventListener('click', () => {
+        DiscordButton.addEventListener('click', () => {
             window.open('https://discord.gg/invitecode', '_blank');
         });
 
-        discordButton.addEventListener('mouseenter', () => {
-            customCursor.style.backgroundColor = '#000000';
+        DiscordButton.addEventListener('mouseenter', () => {
+            CustomCursor.style.backgroundColor = '#000000';
         });
 
-        discordButton.addEventListener('mouseleave', () => {
-            customCursor.style.backgroundColor = '#00ff85';
+        DiscordButton.addEventListener('mouseleave', () => {
+            CustomCursor.style.backgroundColor = '#00ff85';
         });
 
         window.addEventListener('mouseleave', () => {
-            customCursor.style.opacity = '0';
+            CustomCursor.style.opacity = '0';
         });
 
         window.addEventListener('mouseenter', () => {
-            customCursor.style.opacity = '1';
+            CustomCursor.style.opacity = '1';
         });
     }
 });
